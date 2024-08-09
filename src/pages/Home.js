@@ -8,14 +8,14 @@ import {
   Grid,
   Chip,
 } from "@mui/material";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; 
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
 import avatarImage from "../assets/avatar.jpg";
 
 const skills = {
   programmingLanguages: ["JavaScript", "TypeScript", "Java", "Python", "C#"],
-  frameworks: ["React", "Next.js", "React Native", "ASP.NET"],
+  frameworks: ["React", "Next.js","Express.js", "React Native", "ASP.NET"],
   toolsAndTechnologies: [
     "Node.js",
     "Tailwind CSS",
