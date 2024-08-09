@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 const dotColors = ["#FF5733", "#33FF57", "#3357FF", "#F5FF33", "#FF33A8"];
 
 const AnimatedDots = ({ visible }) => {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md")); // Adjust as needed for desktop screen size
   const [dots, setDots] = useState([]);
 
   useEffect(() => {
-    if (visible) {
+    if (visible && isDesktop) {
       const interval = setInterval(() => {
         setDots((prev) => [
           ...prev,
@@ -25,7 +28,9 @@ const AnimatedDots = ({ visible }) => {
     } else {
       setDots([]);
     }
-  }, [visible]);
+  }, [visible, isDesktop]);
+
+  if (!isDesktop) return null; // Do not render if not in desktop mode
 
   return (
     <div

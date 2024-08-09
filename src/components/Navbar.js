@@ -73,10 +73,13 @@ const Navbar = () => {
           {isMobile && (
             <IconButton
               edge="start"
-              color="inherit"
               aria-label="menu"
               onClick={toggleDrawer(true)}
-              sx={{ display: { xs: "block", md: "none" } }}
+              sx={{
+                display: { xs: "block", md: "none" },
+                color:
+                  theme.palette.mode === "light" ? "#000" : "#fff", // Set color based on theme mode
+              }}
             >
               <MenuIcon />
             </IconButton>
