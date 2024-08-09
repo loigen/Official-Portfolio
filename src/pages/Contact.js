@@ -83,7 +83,7 @@ const Contact = () => {
                 marginBottom: "1rem",
               }}
             >
-              Email: lario.saloigen5@gmail.com
+              Email: lariosaloigen5@gmail.com
             </Link>
             <Link
               href="tel:+09812929161"
@@ -93,7 +93,7 @@ const Contact = () => {
                 fontSize: "1.1rem",
               }}
             >
-              Phone: +0981 2929 161
+              Phone: +63 981 2929 161
             </Link>
           </Typography>
         </Box>

@@ -8,6 +8,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import ThemeToggleButton from "./components/ThemeToggleButton";
 import { CustomThemeProvider } from "./contexts/ThemeContext";
+import Footer from "./components/Footer";
 
 const App = () => (
   <CustomThemeProvider>
@@ -24,6 +25,7 @@ const App = () => (
         </Routes>
       </div>
       <ThemeToggleButton />
+      <Footer/>
     </Router>
   </CustomThemeProvider>
 );
