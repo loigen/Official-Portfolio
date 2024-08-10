@@ -8,14 +8,14 @@ import {
   Grid,
   Chip,
 } from "@mui/material";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
 import avatarImage from "../assets/avatar.jpg";
 
 const skills = {
   programmingLanguages: ["JavaScript", "TypeScript", "Java", "Python", "C#"],
-  frameworks: ["React", "Next.js","Express.js", "React Native", "ASP.NET"],
+  frameworks: ["React", "Next.js", "Express.js", "React Native", "ASP.NET"],
   toolsAndTechnologies: [
     "Node.js",
     "Tailwind CSS",
@@ -117,9 +117,12 @@ const Home = () => {
               fontSize: { xs: "1rem", sm: "1.25rem" },
             }}
           >
-            I'm a web developer specializing in creating modern and engaging
-            web applications with a focus on futuristic designs and
-            cutting-edge technologies.
+            I'm a Software Developer focused on creating modern, visually
+            engaging applications using cutting-edge technologies. Skilled in
+            JavaScript, TypeScript, Java, Python, and C#, I work with frameworks
+            like React, Next.js, and ASP.NET. My experience spans web and mobile
+            development, with a strong command of tools like Node.js, Tailwind
+            CSS, and MongoDB to deliver innovative, high-quality solutions.
           </Typography>
           <Link to="/projects" style={{ textDecoration: "none" }}>
             <Button
