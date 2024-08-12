@@ -1,4 +1,3 @@
-// src/pages/Contact.js
 import React from "react";
 import { Container, Typography, Box, Link, Divider } from "@mui/material";
 import { Element } from "react-scroll";
@@ -74,7 +73,8 @@ const Contact = () => {
             sx={{ color: isDarkMode ? "#B0B0B0" : "#666" }}
           >
             <Link
-              href="mailto:lariosaloigen5@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=lariosaloigen5@gmail.com"
+              target="_blank"
               sx={{
                 color: isDarkMode ? "#E0E0E0" : "#333",
                 textDecoration: "none",
