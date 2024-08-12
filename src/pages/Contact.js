@@ -74,7 +74,7 @@ const Contact = () => {
             sx={{ color: isDarkMode ? "#B0B0B0" : "#666" }}
           >
             <Link
-              href="mailto:lario.saloigen5@gmail.com"
+              href="mailto:lariosaloigen5@gmail.com"
               sx={{
                 color: isDarkMode ? "#E0E0E0" : "#333",
                 textDecoration: "none",
