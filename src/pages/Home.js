@@ -19,27 +19,52 @@ const replaceText = "I am Loigen Lariosa";
 
 const skills = {
   programmingLanguages: [
-    "JavaScript",
-    "PHP",
-    "TypeScript",
-    "Java",
-    "Python",
-    "C#",
+    {
+      name: "JavaScript",
+      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    },
+    { name: "PHP", url: "https://www.php.net/" },
+    { name: "TypeScript", url: "https://www.typescriptlang.org/" },
+    { name: "Java", url: "https://www.oracle.com/java/" },
+    { name: "Python", url: "https://www.python.org/" },
+    { name: "C#", url: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
   ],
-  frameworks: ["React", "Next.js", "Express.js", "React Native", "ASP.NET"],
+  frameworks: [
+    { name: "React", url: "https://reactjs.org/" },
+    { name: "Next.js", url: "https://nextjs.org/" },
+    { name: "Express.js", url: "https://expressjs.com/" },
+    { name: "React Native", url: "https://reactnative.dev/" },
+    { name: "ASP.NET", url: "https://dotnet.microsoft.com/apps/aspnet" },
+  ],
   toolsAndTechnologies: [
-    "Node.js",
-    "Tailwind CSS",
-    "Sass",
-    "MongoDB",
-    "SQL",
-    "Figma",
-    "AI Management",
-    "Material UI",
-    "Shadcn UI",
-    "Bootstrap",
+    { name: "Node.js", url: "https://nodejs.org/" },
+    { name: "Tailwind CSS", url: "https://tailwindcss.com/" },
+    { name: "Sass", url: "https://sass-lang.com/" },
+    { name: "MongoDB", url: "https://www.mongodb.com/" },
+    { name: "SQL", url: "https://www.sql.org/" },
+    { name: "Figma", url: "https://www.figma.com/" },
+    {
+      name: "AI Management",
+      url: "https://www.hostinger.com/tutorials/ai-for-websites",
+    },
+    { name: "Material UI", url: "https://mui.com/" },
+    { name: "Shadcn UI", url: "https://ui.shadcn.com/" },
+    { name: "Bootstrap", url: "https://getbootstrap.com/" },
   ],
-  roles: ["Mobile App Developer", "Web Developer", "Full Stack Developer"],
+  roles: [
+    {
+      name: "Mobile App Developer",
+      url: "https://www.ibm.com/topics/mobile-application-development#:~:text=Mobile%20application%20development%20is%20the%20process%20of,making%20software%20for%20smartphones%2C%20tablets%20and%20digital%20assistants.",
+    },
+    {
+      name: "Web Developer",
+      url: "https://www.geeksforgeeks.org/web-development/",
+    },
+    {
+      name: "Full Stack Developer",
+      url: "https://www.coursera.org/articles/full-stack-developer",
+    },
+  ],
 };
 
 const Home = () => {
@@ -48,7 +73,7 @@ const Home = () => {
   const isDarkMode = theme.palette.mode === "dark";
   const [avatarIndex, setAvatarIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
-
+  const mintGreenStroke = isDarkMode ? "0 0 1px #98FF98, 0 0 2px #98FF98" : "";
   const avatarImages = [avatarImage1, avatarImage2];
 
   const [springProps, setSpringProps] = useSpring(() => ({
@@ -226,7 +251,11 @@ const Home = () => {
             <Typography
               variant="h4"
               component="h2"
-              sx={{ marginBottom: "2rem", fontWeight: 700 }}
+              sx={{
+                marginBottom: "2rem",
+                fontWeight: 700,
+                textShadow: mintGreenStroke,
+              }}
             >
               Skills & Technologies
             </Typography>
@@ -266,18 +295,24 @@ const Home = () => {
                         .replace(/^./, (str) => str.toUpperCase())}
                     </Typography>
                     {items.map((skill, index) => (
-                      <Chip
+                      <a
+                        href={skill.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         key={index}
-                        label={skill}
-                        color="primary"
-                        variant="outlined"
-                        sx={{
-                          margin: "0.3rem",
-                          fontSize: { xs: "0.75rem", sm: "0.875rem" },
-                          fontWeight: 500,
-                          borderRadius: "8px",
-                        }}
-                      />
+                      >
+                        <Chip
+                          label={skill.name}
+                          color="primary"
+                          variant="outlined"
+                          sx={{
+                            margin: "0.3rem",
+                            fontSize: { xs: "0.75rem", sm: "0.875rem" },
+                            fontWeight: 500,
+                            borderRadius: "8px",
+                          }}
+                        />
+                      </a>
                     ))}
                   </Box>
                 </Grid>

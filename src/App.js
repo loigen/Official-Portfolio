@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import ThemeToggleButton from "./components/ThemeToggleButton";
 import { CustomThemeProvider } from "./contexts/ThemeContext";
 import Footer from "./components/Footer";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const App = () => (
   <CustomThemeProvider>
@@ -25,7 +27,7 @@ const App = () => (
         </Routes>
       </div>
       <ThemeToggleButton />
-      <Footer/>
+      <Footer />
     </Router>
   </CustomThemeProvider>
 );

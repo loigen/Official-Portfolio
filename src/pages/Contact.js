@@ -3,10 +3,12 @@ import { Container, Typography, Box, Link, Divider } from "@mui/material";
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
+import ContactForm from "../components/ContactForm";
 
 const Contact = () => {
   const theme = useTheme();
   const isDarkMode = theme.palette.mode === "dark";
+  const mintGreenStroke = isDarkMode ? "0 0 1px #98FF98, 0 0 2px #98FF98" : "";
 
   return (
     <Container
@@ -53,6 +55,7 @@ const Contact = () => {
               marginBottom: "1.5rem",
               textTransform: "uppercase",
               position: "relative",
+              textShadow: mintGreenStroke,
             }}
           >
             Get in Touch
@@ -98,7 +101,62 @@ const Contact = () => {
           </Typography>
         </Box>
       </Element>
+      {/* Contact Form */}
+      <Element name="contact-form">
+        <Box
+          sx={{
+            textAlign: "center",
+            padding: "2rem",
+            backgroundColor: isDarkMode ? "#1E1E1E" : "#FFFFFF",
+            borderRadius: "12px",
+            boxShadow: `0px 4px 20px ${
+              isDarkMode ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.1)"
+            }`,
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: isDarkMode
+                ? "linear-gradient(135deg, rgba(71, 145, 219, 0.2), rgba(200, 158, 252, 0.2))"
+                : "linear-gradient(135deg, rgba(71, 145, 219, 0.2), rgba(200, 158, 252, 0.2))",
+              zIndex: -1,
+            }}
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <Typography
+              variant="h5"
+              sx={{
+                color: isDarkMode ? "#E0E0E0" : "#333",
+                fontWeight: 700,
+                marginBottom: "1.5rem",
+                textShadow: mintGreenStroke,
+              }}
+            >
+              Contact Form
+            </Typography>
+            <Divider
+              sx={{
+                borderColor: isDarkMode ? "#333" : "#CCC",
+                marginBottom: "1.5rem",
+              }}
+            />
 
+            <ContactForm />
+          </motion.div>
+        </Box>
+      </Element>
+      <br />
       {/* Maps Section */}
       <Element name="maps">
         <Box
@@ -134,6 +192,7 @@ const Contact = () => {
               color: isDarkMode ? "#E0E0E0" : "#333",
               fontWeight: 700,
               marginBottom: "2rem",
+              textShadow: mintGreenStroke,
             }}
           >
             Find Me
@@ -179,66 +238,6 @@ const Contact = () => {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </Box>
-        </Box>
-      </Element>
-
-      {/* Contact Form */}
-      <Element name="contact-form">
-        <Box
-          sx={{
-            textAlign: "center",
-            padding: "2rem",
-            backgroundColor: isDarkMode ? "#1E1E1E" : "#FFFFFF",
-            borderRadius: "12px",
-            boxShadow: `0px 4px 20px ${
-              isDarkMode ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.1)"
-            }`,
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              background: isDarkMode
-                ? "linear-gradient(135deg, rgba(71, 145, 219, 0.2), rgba(200, 158, 252, 0.2))"
-                : "linear-gradient(135deg, rgba(71, 145, 219, 0.2), rgba(200, 158, 252, 0.2))",
-              zIndex: -1,
-            }}
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <Typography
-              variant="h5"
-              sx={{
-                color: isDarkMode ? "#E0E0E0" : "#333",
-                fontWeight: 700,
-                marginBottom: "1.5rem",
-              }}
-            >
-              Contact Form (Coming Soon)
-            </Typography>
-            <Divider
-              sx={{
-                borderColor: isDarkMode ? "#333" : "#CCC",
-                marginBottom: "1.5rem",
-              }}
-            />
-            <Typography
-              variant="body1"
-              sx={{ color: isDarkMode ? "#B0B0B0" : "#666" }}
-            >
-              Our contact form is under development. Meanwhile, you can reach
-              out using the contact information above.
-            </Typography>
-          </motion.div>
         </Box>
       </Element>
     </Container>

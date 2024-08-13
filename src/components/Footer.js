@@ -4,6 +4,8 @@ import { useTheme } from "@mui/material/styles";
 
 const Footer = () => {
   const theme = useTheme();
+  const isDarkMode = theme.palette.mode === "dark";
+  const mintGreenStroke = isDarkMode ? "0 0 1px #98FF98, 0 0 2px #98FF98" : "";
 
   return (
     <footer
@@ -38,6 +40,7 @@ const Footer = () => {
               letterSpacing: "2px",
               marginBottom: "8px",
               color: theme.palette.text.primary,
+              textShadow: mintGreenStroke,
             }}
           >
             LOIGEN LARIOSA
@@ -45,6 +48,10 @@ const Footer = () => {
           <Typography
             variant="body2"
             style={{
+              display: "flex",
+              gap: "5px",
+              justifyContent: "center",
+              alignItems: "center",
               fontFamily: "'Roboto', sans-serif",
               color: theme.palette.text.secondary,
             }}
