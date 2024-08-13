@@ -27,12 +27,12 @@ export const CustomThemeProvider = ({ children }) => {
       mode: themeMode,
       ...(themeMode === "light"
         ? {
-            primary: { main: "#009688" }, // Darker mint green
-            background: { default: "#b2dfdb", paper: "#ffffff" },
+            primary: { main: "#1976d2" },
+            background: { default: "#f0f0f0", paper: "#ffffff" },
             text: { primary: "#000000" },
           }
         : {
-            primary: { main: "#bb86fc" },
+            primary: { main: "#00bfae" },
             background: { default: "#121212", paper: "#1e1e1e" },
             text: { primary: "#ffffff" },
           }),

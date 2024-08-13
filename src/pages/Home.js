@@ -10,14 +10,22 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
-import avatarImage from "../assets/avatar.jpg";
 import { useSpring, animated } from "@react-spring/web";
+import avatarImage1 from "../assets/avatar.jpg";
+import avatarImage2 from "../assets/avatar1.jpg";
 
 const typingText = "Welcome, Let's Work Together.";
 const replaceText = "I am Loigen Lariosa";
 
 const skills = {
-  programmingLanguages: ["JavaScript", "TypeScript", "Java", "Python", "C#"],
+  programmingLanguages: [
+    "JavaScript",
+    "PHP",
+    "TypeScript",
+    "Java",
+    "Python",
+    "C#",
+  ],
   frameworks: ["React", "Next.js", "Express.js", "React Native", "ASP.NET"],
   toolsAndTechnologies: [
     "Node.js",
@@ -37,6 +45,11 @@ const skills = {
 const Home = () => {
   const theme = useTheme();
   const [isTyping, setIsTyping] = useState(true);
+  const isDarkMode = theme.palette.mode === "dark";
+  const [avatarIndex, setAvatarIndex] = useState(0);
+  const [flipped, setFlipped] = useState(false);
+
+  const avatarImages = [avatarImage1, avatarImage2];
 
   const [springProps, setSpringProps] = useSpring(() => ({
     text: "",
@@ -62,6 +75,18 @@ const Home = () => {
 
     typeText(isTyping ? typingText : replaceText);
   }, [isTyping, setSpringProps]);
+
+  useEffect(() => {
+    const flipInterval = setInterval(() => {
+      setFlipped(true);
+      setTimeout(() => {
+        setAvatarIndex((prevIndex) => (prevIndex + 1) % avatarImages.length);
+        setFlipped(false);
+      }, 500);
+    }, 4000);
+
+    return () => clearInterval(flipInterval);
+  }, []);
 
   return (
     <Container
@@ -99,22 +124,34 @@ const Home = () => {
           },
         }}
       >
-        <Avatar
-          src={avatarImage}
-          alt="Avatar"
+        <Box
           sx={{
-            width: { xs: 120, sm: 150 },
-            height: { xs: 120, sm: 150 },
+            perspective: "1000px",
+            width: { xs: 150, sm: 200, md: 250 },
             margin: "0 auto",
-            border: `6px solid ${theme.palette.primary.main}`,
-            boxShadow: `0 0 30px ${theme.palette.primary.main}60`,
-            transition: "transform 0.5s ease",
-            "&:hover": {
-              transform: "scale(1.15)",
-              boxShadow: `0 0 40px ${theme.palette.primary.main}80`,
-            },
           }}
-        />
+        >
+          <Avatar
+            src={avatarImages[avatarIndex]}
+            alt="Avatar"
+            sx={{
+              width: { xs: 150, sm: 200, md: 250 },
+              height: { xs: 150, sm: 200, md: 250 },
+              border: `6px solid ${theme.palette.primary.main}`,
+              boxShadow: `0 0 30px ${theme.palette.primary.main}60`,
+              transition: "transform 0.5s ease",
+              transformStyle: "preserve-3d",
+              transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+              backfaceVisibility: "hidden",
+              "&:hover": {
+                transform: `scale(1.15) ${
+                  flipped ? "rotateY(180deg)" : "rotateY(0deg)"
+                }`,
+                boxShadow: `0 0 40px ${theme.palette.primary.main}80`,
+              },
+            }}
+          />
+        </Box>
         <Box sx={{ position: "relative", overflow: "hidden" }}>
           <animated.div
             style={{
@@ -193,174 +230,58 @@ const Home = () => {
             >
               Skills & Technologies
             </Typography>
-            <Grid container spacing={3}>
-              {/* Programming Languages */}
-              <Grid item xs={12} sm={6} md={4}>
-                <Box
-                  sx={{
-                    padding: "1rem",
-                    background: theme.palette.background.paper,
-                    borderRadius: "12px",
-                    boxShadow: `0 2px 10px ${theme.palette.text.primary}20`,
-                    textAlign: "center",
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    component="h3"
-                    sx={{ marginBottom: "1rem" }}
-                  >
-                    Programming Languages
-                  </Typography>
+            <Grid container spacing={4} justifyContent="center">
+              {Object.entries(skills).map(([category, items]) => (
+                <Grid item xs={12} sm={6} md={4} lg={3} key={category}>
                   <Box
                     sx={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: "0.5rem",
-                      justifyContent: "center",
+                      padding: "1.5rem",
+                      backgroundColor: isDarkMode ? "#1e1e1e" : "#ffffff",
+                      borderRadius: "16px",
+                      boxShadow: `0 4px 20px ${
+                        isDarkMode ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0.15)"
+                      }`,
+                      textAlign: "center",
+                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                      "&:hover": {
+                        transform: "scale(1.05)",
+                        boxShadow: `0 6px 25px ${
+                          isDarkMode ? "rgba(0,0,0,0.6)" : "rgba(0,0,0,0.2)"
+                        }`,
+                      },
                     }}
                   >
-                    {skills.programmingLanguages.map((skill) => (
+                    <Typography
+                      variant="h5"
+                      component="h3"
+                      sx={{
+                        marginBottom: "1.2rem",
+                        color: isDarkMode ? "#ffffff" : "#333333",
+                        fontWeight: 600,
+                        fontSize: { xs: "1.2rem", sm: "1.4rem" },
+                      }}
+                    >
+                      {category
+                        .replace(/([A-Z])/g, " $1")
+                        .replace(/^./, (str) => str.toUpperCase())}
+                    </Typography>
+                    {items.map((skill, index) => (
                       <Chip
-                        key={skill}
+                        key={index}
                         label={skill}
+                        color="primary"
+                        variant="outlined"
                         sx={{
-                          backgroundColor: theme.palette.primary.light,
-                          color: theme.palette.primary.contrastText,
-                          margin: "0.2rem",
+                          margin: "0.3rem",
+                          fontSize: { xs: "0.75rem", sm: "0.875rem" },
+                          fontWeight: 500,
                           borderRadius: "8px",
                         }}
                       />
                     ))}
                   </Box>
-                </Box>
-              </Grid>
-
-              {/* Frameworks */}
-              <Grid item xs={12} sm={6} md={4}>
-                <Box
-                  sx={{
-                    padding: "1rem",
-                    background: theme.palette.background.paper,
-                    borderRadius: "12px",
-                    boxShadow: `0 2px 10px ${theme.palette.text.primary}20`,
-                    textAlign: "center",
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    component="h3"
-                    sx={{ marginBottom: "1rem" }}
-                  >
-                    Frameworks
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: "0.5rem",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {skills.frameworks.map((skill) => (
-                      <Chip
-                        key={skill}
-                        label={skill}
-                        sx={{
-                          backgroundColor: theme.palette.primary.light,
-                          color: theme.palette.primary.contrastText,
-                          margin: "0.2rem",
-                          borderRadius: "8px",
-                        }}
-                      />
-                    ))}
-                  </Box>
-                </Box>
-              </Grid>
-
-              {/* Tools and Technologies */}
-              <Grid item xs={12} sm={6} md={4}>
-                <Box
-                  sx={{
-                    padding: "1rem",
-                    background: theme.palette.background.paper,
-                    borderRadius: "12px",
-                    boxShadow: `0 2px 10px ${theme.palette.text.primary}20`,
-                    textAlign: "center",
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    component="h3"
-                    sx={{ marginBottom: "1rem" }}
-                  >
-                    Tools & Technologies
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: "0.5rem",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {skills.toolsAndTechnologies.map((tool) => (
-                      <Chip
-                        key={tool}
-                        label={tool}
-                        sx={{
-                          backgroundColor: theme.palette.primary.light,
-                          color: theme.palette.primary.contrastText,
-                          margin: "0.2rem",
-                          borderRadius: "8px",
-                        }}
-                      />
-                    ))}
-                  </Box>
-                </Box>
-              </Grid>
-
-              {/* Roles */}
-              <Grid item xs={12}>
-                <Box
-                  sx={{
-                    padding: "1rem",
-                    background: theme.palette.background.paper,
-                    borderRadius: "12px",
-                    boxShadow: `0 2px 10px ${theme.palette.text.primary}20`,
-                    textAlign: "center",
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    component="h3"
-                    sx={{ marginBottom: "1rem" }}
-                  >
-                    Roles
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: "0.5rem",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {skills.roles.map((role) => (
-                      <Chip
-                        key={role}
-                        label={role}
-                        sx={{
-                          backgroundColor: theme.palette.primary.light,
-                          color: theme.palette.primary.contrastText,
-                          margin: "0.2rem",
-                          borderRadius: "8px",
-                        }}
-                      />
-                    ))}
-                  </Box>
-                </Box>
-              </Grid>
+                </Grid>
+              ))}
             </Grid>
           </Box>
         </Box>

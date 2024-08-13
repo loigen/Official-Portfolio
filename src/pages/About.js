@@ -13,7 +13,14 @@ import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
 
 const skills = {
-  programmingLanguages: ["JavaScript", "TypeScript", "Java", "Python", "C#"],
+  programmingLanguages: [
+    "JavaScript",
+    "PHP",
+    "TypeScript",
+    "Java",
+    "Python",
+    "C#",
+  ],
   frameworks: ["React", "Next.js", "Express.js", "React Native", "ASP.NET"],
   toolsAndTechnologies: [
     "Node.js",
@@ -239,36 +246,45 @@ const About = () => {
           >
             Skills & Technologies
           </Typography>
-          <Grid container spacing={3}>
+          <Grid container spacing={4} justifyContent="center">
             {Object.entries(skills).map(([category, items]) => (
-              <Grid item xs={12} sm={6} md={4} key={category}>
+              <Grid item xs={12} sm={6} md={4} lg={3} key={category}>
                 <Box
                   sx={{
-                    padding: "1rem",
-                    backgroundColor: isDarkMode ? "#2E2E2E" : "#F5F5F5",
-                    borderRadius: "12px",
-                    boxShadow: `0 2px 10px ${
-                      isDarkMode ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.1)"
+                    padding: "1.5rem",
+                    backgroundColor: isDarkMode ? "#1e1e1e" : "#ffffff",
+                    borderRadius: "16px",
+                    boxShadow: `0 4px 20px ${
+                      isDarkMode ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0.15)"
                     }`,
                     textAlign: "center",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                      boxShadow: `0 6px 25px ${
+                        isDarkMode ? "rgba(0,0,0,0.6)" : "rgba(0,0,0,0.2)"
+                      }`,
+                    },
                   }}
                 >
                   <Typography
-                    variant="h6"
+                    variant="h5"
                     component="h3"
                     sx={{
-                      marginBottom: "1rem",
-                      color: isDarkMode ? "#E0E0E0" : "#333",
+                      marginBottom: "1.2rem",
+                      color: isDarkMode ? "#ffffff" : "#000000",
+                      fontWeight: "bold",
+                      textTransform: "capitalize",
+                      letterSpacing: "0.5px",
                     }}
                   >
-                    {category.charAt(0).toUpperCase() +
-                      category.slice(1).replace(/([A-Z])/g, " $1")}
+                    {category.replace(/([A-Z])/g, " $1")}
                   </Typography>
                   <Box
                     sx={{
                       display: "flex",
                       flexWrap: "wrap",
-                      gap: "0.5rem",
+                      gap: "0.75rem",
                       justifyContent: "center",
                     }}
                   >
@@ -277,8 +293,8 @@ const About = () => {
                         key={item}
                         label={item}
                         sx={{
-                          backgroundColor: isDarkMode ? "#00bfae" : "#009688",
-                          color: isDarkMode ? "#121212" : "#ffffff",
+                          backgroundColor: theme.palette.primary.light,
+                          color: theme.palette.primary.contrastText,
                           margin: "0.2rem",
                           borderRadius: "8px",
                         }}
