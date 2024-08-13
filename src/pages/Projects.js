@@ -8,6 +8,7 @@ import {
   CardContent,
   CardMedia,
   Modal,
+  useMediaQuery,
 } from "@mui/material";
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
@@ -16,7 +17,7 @@ import AMS from "../assets/AMS.png";
 import Brokerage from "../assets/Brokerage.png";
 import Insurance from "../assets/Insurance.png";
 import MLWallet from "../assets/MLwallet.png";
-
+import CloseIcon from "@mui/icons-material/Close";
 const projectData = [
   {
     title: "ML Brokerage",
@@ -48,7 +49,7 @@ const Projects = () => {
   const theme = useTheme();
   const isDarkMode = theme.palette.mode === "dark";
   const mintGreenStroke = isDarkMode ? "0 0 1px #98FF98, 0 0 2px #98FF98" : "";
-
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [open, setOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -65,13 +66,17 @@ const Projects = () => {
   return (
     <Container
       sx={{
+        borderRadius: "12px",
         marginTop: "5rem",
+        marginBottom: "5rem",
         padding: "2rem",
-        backgroundColor: isDarkMode ? "#121212" : "#F5F5F5",
+        backgroundColor: isDarkMode ? "#1E1E1E" : "#FFFFFF",
         overflow: "hidden",
+        boxShadow: `0px 4px 15px ${
+          isDarkMode ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.1)"
+        }`,
       }}
     >
-      {/* Featured Projects Section */}
       <Element name="projects">
         <Typography
           variant="h4"
@@ -112,11 +117,7 @@ const Projects = () => {
                   sx={{
                     borderRadius: "12px",
                     backgroundColor: isDarkMode ? "#1E1E1E" : "#FFFFFF",
-                    boxShadow: `0px 8px 24px ${
-                      isDarkMode
-                        ? "rgba(152, 255, 152, 0.4)" // Mint green shadow in dark mode
-                        : "rgba(0,0,0,0.2)"
-                    }`,
+                    boxShadow: 24,
                     transition: "transform 0.3s, box-shadow 0.3s",
                     position: "relative",
                     overflow: "hidden",
@@ -125,7 +126,7 @@ const Projects = () => {
                       transform: "scale(1.05)",
                       boxShadow: `0px 12px 32px ${
                         isDarkMode
-                          ? "rgba(152, 255, 152, 0.6)" // Darker mint green shadow on hover in dark mode
+                          ? "rgba(152, 255, 152, 0.6)"
                           : "rgba(0,0,0,0.3)"
                       }`,
                       "&::before": {
@@ -197,43 +198,66 @@ const Projects = () => {
         >
           <Box
             sx={{
-              width: "80%",
+              width: isSmallScreen ? "90%" : "80%",
               maxWidth: "900px",
               bgcolor: isDarkMode ? "#1E1E1E" : "#FFFFFF",
               borderRadius: "12px",
-              boxShadow: 24,
-              p: 4,
+              boxShadow: `0px 8px 30px ${theme.palette.text.primary}60`,
+              p: 2,
               outline: "none",
+              position: "relative",
             }}
           >
             {selectedProject && (
               <>
+                <CloseIcon
+                  onClick={handleClose}
+                  sx={{
+                    position: "absolute",
+                    top: 8,
+                    right: 8,
+                    cursor: "pointer",
+                    color: isDarkMode ? "#E0E0E0" : "#333",
+                  }}
+                />
                 <CardMedia
                   component="img"
                   image={selectedProject.image}
                   alt={selectedProject.title}
                   sx={{
+                    boxShadow: `0px 8px 24px ${
+                      isDarkMode
+                        ? "rgba(152, 255, 152, 0.4)"
+                        : "rgba(0,0,0,0.2)"
+                    }`,
+                    borderRadius: "10px",
+                    padding: "10px",
                     width: "100%",
-                    maxHeight: "60vh",
+                    maxHeight: "50vh",
                     objectFit: "contain",
                     marginBottom: "1rem",
                   }}
                 />
                 <Typography
-                  variant="h5"
+                  variant="h6"
                   component="div"
                   sx={{
                     color: isDarkMode ? "#E0E0E0" : "#333",
                     fontWeight: 600,
                     textAlign: "center",
+                    fontSize: isSmallScreen ? "1.25rem" : "1.5rem",
                   }}
                 >
                   {selectedProject.title}
                 </Typography>
                 <Typography
-                  variant="body1"
+                  variant="body2"
                   color={isDarkMode ? "#B0B0B0" : "#666"}
-                  sx={{ marginTop: "1rem", textAlign: "center" }}
+                  sx={{
+                    marginTop: "1rem",
+                    textAlign: "center",
+                    fontSize: isSmallScreen ? "0.875rem" : "1rem",
+                  }}
                 >
                   {selectedProject.description}
                 </Typography>
