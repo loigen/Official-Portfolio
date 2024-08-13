@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -18,19 +18,42 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { useSpring, animated } from "@react-spring/web";
 
 const Navbar = () => {
   const theme = useTheme();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isTyping, setIsTyping] = useState(true);
 
-  // Detect if the screen size is mobile
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  // Toggle drawer open state
   const toggleDrawer = (open) => () => {
     setDrawerOpen(open);
   };
+
+  const [springProps, setSpringProps] = useSpring(() => ({
+    text: "",
+    config: { duration: 50 },
+  }));
+
+  useEffect(() => {
+    const typingText = "LOIGEN A. LARIOSA";
+    const typingSpeed = 100;
+
+    const typeText = () => {
+      let index = 0;
+      const typingInterval = setInterval(() => {
+        setSpringProps({ text: typingText.substring(0, index + 1) });
+        index += 1;
+        if (index > typingText.length) {
+          clearInterval(typingInterval);
+        }
+      }, typingSpeed);
+    };
+
+    typeText();
+  }, [setSpringProps]);
 
   return (
     <>
@@ -51,9 +74,8 @@ const Navbar = () => {
         }}
       >
         <Toolbar>
-          <Typography
-            variant="h6"
-            sx={{
+          <animated.div
+            style={{
               flexGrow: 1,
               color: theme.palette.primary.main,
               textShadow:
@@ -64,10 +86,14 @@ const Navbar = () => {
               "&:hover": {
                 color: theme.palette.primary.light,
               },
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              fontSize: "1.25rem",
+              fontWeight: 600,
             }}
           >
-            LOIGEN A. LARIOSA
-          </Typography>
+            {springProps.text}
+          </animated.div>
 
           {/* Menu Icon for Mobile */}
           {isMobile && (
@@ -77,8 +103,7 @@ const Navbar = () => {
               onClick={toggleDrawer(true)}
               sx={{
                 display: { xs: "block", md: "none" },
-                color:
-                  theme.palette.mode === "light" ? "#000" : "#fff", // Set color based on theme mode
+                color: theme.palette.mode === "light" ? "#000" : "#fff",
               }}
             >
               <MenuIcon />

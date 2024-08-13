@@ -2,23 +2,30 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTheme, useMediaQuery } from "@mui/material";
 
-const dotColors = ["#FF5733", "#33FF57", "#3357FF", "#F5FF33", "#FF33A8"];
+const dotColors = {
+  light: ["#FF5733", "#33FF57", "#3357FF", "#F5FF33", "#FF33A8"], // Light theme colors
+  dark: ["#FF5722", "#4CAF50", "#2196F3", "#FFEB3B", "#E91E63"], // Dark theme colors
+  mintGreen: ["#004d40", "#00796b", "#009688", "#004d40", "#80cbc4"], // Mint green theme colors
+};
 
 const AnimatedDots = ({ visible }) => {
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md")); // Adjust as needed for desktop screen size
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const [dots, setDots] = useState([]);
 
   useEffect(() => {
     if (visible && isDesktop) {
       const interval = setInterval(() => {
+        const themeMode = theme.palette.mode;
         setDots((prev) => [
           ...prev,
           {
             top: `${Math.random() * 100}vh`,
             left: `${Math.random() * 100}vw`,
             backgroundColor:
-              dotColors[Math.floor(Math.random() * dotColors.length)],
+              dotColors[themeMode][
+                Math.floor(Math.random() * dotColors[themeMode].length)
+              ],
             key: Math.random(),
           },
         ]);
@@ -28,7 +35,7 @@ const AnimatedDots = ({ visible }) => {
     } else {
       setDots([]);
     }
-  }, [visible, isDesktop]);
+  }, [visible, isDesktop, theme.palette.mode]);
 
   if (!isDesktop) return null; // Do not render if not in desktop mode
 

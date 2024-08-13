@@ -14,7 +14,7 @@ import { useTheme } from "@mui/material/styles";
 
 const skills = {
   programmingLanguages: ["JavaScript", "TypeScript", "Java", "Python", "C#"],
-  frameworks: ["React", "Next.js","Express.js", "React Native", "ASP.NET"],
+  frameworks: ["React", "Next.js", "Express.js", "React Native", "ASP.NET"],
   toolsAndTechnologies: [
     "Node.js",
     "Tailwind CSS",
@@ -25,7 +25,7 @@ const skills = {
     "AI Management",
     "Material UI",
     "Shadcn UI",
-    "bootstrap",
+    "Bootstrap",
   ],
   roles: ["Mobile App Developer", "Web Developer", "Full Stack Developer"],
 };
@@ -221,7 +221,7 @@ const About = () => {
           sx={{
             marginTop: "2rem",
             padding: "2rem",
-            background: isDarkMode ? "#1E1E1E" : "#FFFFFF",
+            backgroundColor: isDarkMode ? "#1E1E1E" : "#F5F5F5",
             borderRadius: "12px",
             boxShadow: `0px 4px 20px ${
               isDarkMode ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.1)"
@@ -245,7 +245,7 @@ const About = () => {
                 <Box
                   sx={{
                     padding: "1rem",
-                    background: isDarkMode ? "#2E2E2E" : "#F5F5F5",
+                    backgroundColor: isDarkMode ? "#2E2E2E" : "#F5F5F5",
                     borderRadius: "12px",
                     boxShadow: `0 2px 10px ${
                       isDarkMode ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.1)"
@@ -277,10 +277,8 @@ const About = () => {
                         key={item}
                         label={item}
                         sx={{
-                          backgroundColor: isDarkMode
-                            ? "rgb(200, 158, 252)"
-                            : "rgb(71, 145, 219)",
-                          color: isDarkMode ? "#1E1E1E" : "#FFFFFF",
+                          backgroundColor: isDarkMode ? "#00bfae" : "#009688",
+                          color: isDarkMode ? "#121212" : "#ffffff",
                           margin: "0.2rem",
                           borderRadius: "8px",
                         }}
