@@ -9,12 +9,14 @@ import {
   Alert,
   useTheme,
 } from "@mui/material";
+import emailjs from "emailjs-com";
 
 const ContactForm = () => {
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [validationError, setValidationError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,17 +30,45 @@ const ContactForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setValidationError("");
+
+    // field validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setValidationError("All fields are required!");
+      return;
+    }
+
+    // email validation
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(formData.email)) {
+      setValidationError("Please enter a valid email address!");
+      return;
+    }
+
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      Math.random() > 0.5 ? setSuccess(true) : setError(true);
+    const serviceId = "service_8y2s72q";
+    const templateId = "template_uwrgbem";
+    const userId = "rJ5kPXerBg9bonHix";
 
-      // Optionally clear form data on successful submission
-      if (Math.random() > 0.5) {
+    const emailData = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_email: "larialosaloigen5@gmail.com",
+    };
+
+    emailjs
+      .send(serviceId, templateId, emailData, userId)
+      .then((response) => {
+        setLoading(false);
+        setSuccess(true);
         setFormData({ name: "", email: "", message: "" });
-      }
-    }, 2000);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(true);
+      });
   };
 
   return (
@@ -146,11 +176,12 @@ const ContactForm = () => {
         </Button>
       </form>
       <Snackbar
-        open={success || error}
+        open={success || error || validationError}
         autoHideDuration={6000}
         onClose={() => {
           setSuccess(false);
           setError(false);
+          setValidationError("");
         }}
         action={
           <Button
@@ -158,6 +189,7 @@ const ContactForm = () => {
             onClick={() => {
               setSuccess(false);
               setError(false);
+              setValidationError("");
             }}
           >
             Close
@@ -168,20 +200,29 @@ const ContactForm = () => {
           onClose={() => {
             setSuccess(false);
             setError(false);
+            setValidationError("");
           }}
-          severity={success ? "success" : "error"}
+          severity={success ? "success" : error ? "error" : "warning"}
           sx={{
             backgroundColor: success
               ? theme.palette.success.main
-              : theme.palette.error.main,
+              : error
+              ? theme.palette.error.main
+              : theme.palette.warning.main,
             color: theme.palette.getContrastText(
-              success ? theme.palette.success.main : theme.palette.error.main
+              success
+                ? theme.palette.success.main
+                : error
+                ? theme.palette.error.main
+                : theme.palette.warning.main
             ),
           }}
         >
           {success
             ? "Message sent successfully!"
-            : "Message failed to send. Please try again."}
+            : error
+            ? "Message failed to send. Please try again."
+            : validationError}
         </Alert>
       </Snackbar>
     </Container>
