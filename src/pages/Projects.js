@@ -48,7 +48,7 @@ const projectData = [
 const Projects = () => {
   const theme = useTheme();
   const isDarkMode = theme.palette.mode === "dark";
-  const mintGreenStroke = isDarkMode ? "0 0 1px #98FF98, 0 0 2px #98FF98" : "";
+  const mintGreenStroke = isDarkMode ? "0 0 1px #00bfae, 0 0 5px #00bfae" : "";
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [open, setOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -125,9 +125,7 @@ const Projects = () => {
                     "&:hover": {
                       transform: "scale(1.05)",
                       boxShadow: `0px 12px 32px ${
-                        isDarkMode
-                          ? "rgba(152, 255, 152, 0.6)"
-                          : "rgba(0,0,0,0.3)"
+                        isDarkMode ? "#00bfae" : "rgba(0,0,0,0.3)"
                       }`,
                       "&::before": {
                         content: '""',
@@ -226,9 +224,7 @@ const Projects = () => {
                   alt={selectedProject.title}
                   sx={{
                     boxShadow: `0px 8px 24px ${
-                      isDarkMode
-                        ? "rgba(152, 255, 152, 0.4)"
-                        : "rgba(0,0,0,0.2)"
+                      isDarkMode ? "#00bfae" : "rgba(0,0,0,0.2)"
                     }`,
                     borderRadius: "10px",
                     padding: "10px",

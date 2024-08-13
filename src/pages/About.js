@@ -65,7 +65,7 @@ const skills = {
 const About = () => {
   const theme = useTheme();
   const isDarkMode = theme.palette.mode === "dark";
-  const mintGreenStroke = isDarkMode ? "0 0 1px #98FF98, 0 0 2px #98FF98" : "";
+  const mintGreenStroke = isDarkMode ? "0 0 1px #00bfae, 0 0 5px #00bfae" : "";
 
   return (
     <Container
