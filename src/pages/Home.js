@@ -14,7 +14,7 @@ import { useSpring, animated } from "@react-spring/web";
 import avatarImage1 from "../assets/avatar.jpg";
 import avatarImage2 from "../assets/avatar1.jpg";
 
-const typingText = "Welcome, Let's Work Together.";
+const typingText = "Welcome!";
 const replaceText = "I am Loigen Lariosa";
 
 const skills = {
@@ -182,7 +182,7 @@ const Home = () => {
             style={{
               ...springProps,
               overflow: "hidden",
-              whiteSpace: "nowrap",
+              whiteSpace: "wrap",
               borderRight: `2px solid ${theme.palette.primary.main}`,
               fontSize: { xs: "5rem", sm: "6rem" },
               fontWeight: 700,
@@ -193,6 +193,7 @@ const Home = () => {
               color: theme.palette.text.primary,
               whiteSpace: "pre",
               display: "inline-block",
+              textAlign: "center",
             }}
           >
             {springProps.text}
