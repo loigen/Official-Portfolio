@@ -3,15 +3,14 @@ import { Box, Typography, Button, TextField } from "@mui/material";
 import { useTheme } from "../contexts/ThemeContext";
 import { motion, useAnimation } from "framer-motion";
 import Swal from "sweetalert2";
-
 import wordsData from "../data/words.json";
 
 const scrambleWord = (word) => {
-  let scrambled = word
+  if (!word) return "";
+  return word
     .split("")
     .sort(() => Math.random() - 0.5)
     .join("");
-  return scrambled;
 };
 
 const getAlertStyle = (isLightTheme) => ({
@@ -32,6 +31,7 @@ const NoInternetConnection = () => {
 
   const [currentWord, setCurrentWord] = useState("");
   const [scrambledWord, setScrambledWord] = useState("");
+  const [wordDescription, setWordDescription] = useState("");
   const [userGuess, setUserGuess] = useState("");
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(
@@ -44,23 +44,33 @@ const NoInternetConnection = () => {
   }, []);
 
   const generateNewWord = () => {
-    const randomIndex = Math.floor(Math.random() * wordsData.length);
-    const word = wordsData[randomIndex];
-    setCurrentWord(word);
-    setScrambledWord(scrambleWord(word));
+    if (wordsData.words.length === 0) {
+      console.error("wordsData is empty");
+      return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * wordsData.words.length);
+    const wordObject = wordsData.words[randomIndex];
+
+    if (!wordObject) {
+      console.error("Word object is undefined or empty");
+      return;
+    }
+
+    setCurrentWord(wordObject.word);
+    setScrambledWord(scrambleWord(wordObject.word));
+    setWordDescription(wordObject.description);
   };
 
   const handleGuess = () => {
-    if (userGuess.toLowerCase() === currentWord.toLowerCase()) {
+    if (userGuess.trim().toLowerCase() === currentWord.toLowerCase()) {
       controls
         .start({
           scale: 1.2,
           opacity: 0.8,
           transition: { duration: 0.2 },
         })
-        .then(() => {
-          controls.start({ scale: 1, opacity: 1 });
-        });
+        .then(() => controls.start({ scale: 1, opacity: 1 }));
 
       const newScore = score + 1;
       setScore(newScore);
@@ -76,6 +86,7 @@ const NoInternetConnection = () => {
         text: "You guessed the word right!",
         icon: "success",
         ...getAlertStyle(isLightTheme),
+        ...setUserGuess(""),
       });
     } else {
       Swal.fire({
@@ -145,16 +156,36 @@ const NoInternetConnection = () => {
       <Typography
         variant="body1"
         paragraph
-        sx={{ color: isLightTheme ? "#000" : "#fff", marginBottom: "1rem" }}
+        sx={{
+          borderBottom: isLightTheme
+            ? "2px solid #1976d2"
+            : "2px solid #00bfae",
+          textTransform: "uppercase",
+          fontSize: 40,
+          color: isLightTheme ? "#1976d2" : "#00bfae",
+          marginBottom: "1rem",
+        }}
       >
-        Scrambled Word: {scrambledWord}
+        {scrambledWord}
+      </Typography>
+      <Typography
+        variant="body2"
+        paragraph
+        sx={{
+          fontSize: 20,
+          color: isLightTheme ? "#000" : "#fff",
+          marginBottom: "1rem",
+        }}
+      >
+        {wordDescription}
       </Typography>
       <TextField
         variant="outlined"
         label="Your Guess"
+        textAlign="center"
         value={userGuess}
         onChange={(e) => setUserGuess(e.target.value)}
-        sx={{ marginBottom: "1rem" }}
+        sx={{ textAlign: "center", marginBottom: "1rem" }}
       />
       <Button
         variant="contained"

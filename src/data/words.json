@@ -1,98 +1,463 @@
-[
-  "apple",
-  "banana",
-  "grape",
-  "orange",
-  "mango",
-  "peach",
-  "pear",
-  "kiwi",
-  "plum",
-  "cherry",
-  "blueberry",
-  "strawberry",
-  "raspberry",
-  "blackberry",
-  "watermelon",
-  "pineapple",
-  "coconut",
-  "papaya",
-  "fig",
-  "date",
-  "apricot",
-  "nectarine",
-  "pomegranate",
-  "tangerine",
-  "lemon",
-  "lime",
-  "grapefruit",
-  "dragonfruit",
-  "starfruit",
-  "cantaloupe",
-  "honeydew",
-  "kiwi",
-  "quince",
-  "persimmon",
-  "jellybean",
-  "currant",
-  "gooseberry",
-  "rhubarb",
-  "guava",
-  "avocado",
-  "plum",
-  "lychee",
-  "mulberry",
-  "olive",
-  "passionfruit",
-  "elderberry",
-  "soursop",
-  "carambola",
-  "jackfruit",
-  "fig",
-  "prickly pear",
-  "tamarind",
-  "loquat",
-  "durian",
-  "clementine",
-  "blood orange",
-  "grapefruit",
-  "nashi",
-  "sapote",
-  "jambu",
-  "medlar",
-  "longan",
-  "ackee",
-  "yuzu",
-  "rose apple",
-  "salak",
-  "sugar apple",
-  "blackcurrant",
-  "loganberry",
-  "mangosteen",
-  "chayote",
-  "yumberry",
-  "bittermelon",
-  "carrot",
-  "beetroot",
-  "zucchini",
-  "eggplant",
-  "asparagus",
-  "radish",
-  "broccoli",
-  "cauliflower",
-  "cucumber",
-  "bell pepper",
-  "spinach",
-  "kale",
-  "lettuce",
-  "cabbage",
-  "celery",
-  "tomato",
-  "onion",
-  "garlic",
-  "sweetcorn",
-  "greenbean",
-  "artichoke",
-  "rhubarb",
-  "sweetpotato"
-]
+{
+  "words": [
+    {
+      "word": "ability",
+      "description": "The capacity to do something or act in a particular way."
+    },
+    { "word": "about", "description": "Concerning; relating to." },
+    { "word": "above", "description": "At a higher level or layer than." },
+    {
+      "word": "accept",
+      "description": "To receive or agree to something offered or proposed."
+    },
+    {
+      "word": "across",
+      "description": "From one side to the other side of something."
+    },
+    {
+      "word": "action",
+      "description": "The process of doing something to achieve a result."
+    },
+    {
+      "word": "activity",
+      "description": "A condition in which things are happening or being done."
+    },
+    { "word": "add", "description": "To join something to something else." },
+    { "word": "after", "description": "Following in time or place." },
+    { "word": "again", "description": "Once more; another time." },
+    { "word": "against", "description": "In opposition to." },
+    { "word": "all", "description": "The whole quantity or extent of." },
+    { "word": "allow", "description": "To let someone do something." },
+    {
+      "word": "almost",
+      "description": "Very close to, but not exactly or entirely."
+    },
+    {
+      "word": "alone",
+      "description": "Having no one else present; on one's own."
+    },
+    { "word": "among", "description": "Surrounded by; in the company of." },
+    { "word": "amount", "description": "A quantity of something." },
+    {
+      "word": "answer",
+      "description": "A response to a question or situation."
+    },
+    {
+      "word": "any",
+      "description": "Used to refer to one or some of a thing or number of things, no matter how much or how many."
+    },
+    {
+      "word": "appear",
+      "description": "To come into sight or become visible."
+    },
+    {
+      "word": "apply",
+      "description": "To make a formal request or put to practical use."
+    },
+    {
+      "word": "area",
+      "description": "A region or part of a town, a country, or the world."
+    },
+    {
+      "word": "ask",
+      "description": "To request information or an answer to a question."
+    },
+    {
+      "word": "attend",
+      "description": "To be present at an event or meeting."
+    },
+    { "word": "back", "description": "The rear part of something." },
+    { "word": "bad", "description": "Of poor quality or a low standard." },
+    { "word": "be", "description": "To exist or live." },
+    { "word": "become", "description": "To begin to be something." },
+    {
+      "word": "before",
+      "description": "Earlier than a particular time or event."
+    },
+    { "word": "begin", "description": "To start or commence." },
+    { "word": "believe", "description": "To accept as true or real." },
+    { "word": "big", "description": "Of considerable size or extent." },
+    {
+      "word": "book",
+      "description": "A set of written, printed, or blank pages fastened together between a cover."
+    },
+    {
+      "word": "bring",
+      "description": "To take or carry something to a place or person."
+    },
+    {
+      "word": "build",
+      "description": "To construct something by putting parts or materials together."
+    },
+    {
+      "word": "call",
+      "description": "To give someone or something a particular name or to contact someone by phone."
+    },
+    { "word": "can", "description": "To be able to; have the ability to." },
+    {
+      "word": "car",
+      "description": "A road vehicle, typically with four wheels, powered by an internal combustion engine."
+    },
+    {
+      "word": "care",
+      "description": "To be concerned about someone or something."
+    },
+    {
+      "word": "carry",
+      "description": "To support and move someone or something from one place to another."
+    },
+    { "word": "change", "description": "To make or become different." },
+    {
+      "word": "child",
+      "description": "A young human being below the age of puberty."
+    },
+    { "word": "city", "description": "A large town." },
+    { "word": "class", "description": "A group of students taught together." },
+    {
+      "word": "clear",
+      "description": "Easy to perceive, understand, or interpret."
+    },
+    {
+      "word": "come",
+      "description": "To move towards or arrive at a particular place."
+    },
+    { "word": "company", "description": "A business organization or firm." },
+    {
+      "word": "consider",
+      "description": "To think carefully about something, typically before making a decision."
+    },
+    {
+      "word": "continue",
+      "description": "To persist in an activity or process."
+    },
+    { "word": "create", "description": "To bring something into existence." },
+    { "word": "day", "description": "A period of 24 hours as a unit of time." },
+    {
+      "word": "define",
+      "description": "To explain the meaning of a word or concept."
+    },
+    {
+      "word": "different",
+      "description": "Not the same as another or each other."
+    },
+    { "word": "do", "description": "To perform an action or activity." },
+    {
+      "word": "door",
+      "description": "A hinged, sliding, or folding barrier at the entrance to a building, room, or vehicle."
+    },
+    { "word": "down", "description": "From a higher to a lower position." },
+    { "word": "during", "description": "Throughout the duration of." },
+    {
+      "word": "each",
+      "description": "Used to refer to every one of two or more people or things, considered separately."
+    },
+    {
+      "word": "early",
+      "description": "Happening or done before the expected or usual time."
+    },
+    {
+      "word": "eat",
+      "description": "To put food into the mouth, chew, and swallow it."
+    },
+    { "word": "end", "description": "The final part of something." },
+    { "word": "enter", "description": "To come or go into a place." },
+    {
+      "word": "every",
+      "description": "Including all the members or items without exception."
+    },
+    {
+      "word": "example",
+      "description": "A representative form or pattern used for demonstration."
+    },
+    {
+      "word": "face",
+      "description": "The front part of the head from the forehead to the chin."
+    },
+    { "word": "find", "description": "To discover or come upon something." },
+    {
+      "word": "first",
+      "description": "Coming before all others in time or order."
+    },
+    {
+      "word": "follow",
+      "description": "To go or come after someone or something."
+    },
+    {
+      "word": "for",
+      "description": "Used to indicate purpose or intended recipient."
+    },
+    {
+      "word": "form",
+      "description": "A particular way in which a thing exists or appears."
+    },
+    {
+      "word": "from",
+      "description": "Indicating the point in space at which a journey, motion, or action starts."
+    },
+    { "word": "get", "description": "To obtain, receive, or become." },
+    {
+      "word": "give",
+      "description": "To present or deliver something to someone."
+    },
+    { "word": "go", "description": "To move from one place to another." },
+    {
+      "word": "good",
+      "description": "Having the desired qualities; of high quality."
+    },
+    {
+      "word": "great",
+      "description": "Of an extent, amount, or intensity considerably above the normal or average."
+    },
+    {
+      "word": "group",
+      "description": "A number of people or things that are together or in the same place."
+    },
+    { "word": "have", "description": "To possess, own, or hold something." },
+    { "word": "hear", "description": "To perceive sound with the ears." },
+    {
+      "word": "help",
+      "description": "To make it easier for someone to do something by offering one's services or resources."
+    },
+    { "word": "home", "description": "The place where one lives permanently." },
+    { "word": "house", "description": "A building for human habitation." },
+    { "word": "how", "description": "In what way or manner; by what means." },
+    { "word": "important", "description": "Of great significance or value." },
+    {
+      "word": "in",
+      "description": "Expressing the situation of something that is or appears to be enclosed or surrounded by something else."
+    },
+    {
+      "word": "information",
+      "description": "Data or knowledge communicated or received."
+    },
+    { "word": "is", "description": "Third person singular present of 'be'." },
+    {
+      "word": "it",
+      "description": "Used to refer to a thing previously mentioned or easily identified."
+    },
+    {
+      "word": "just",
+      "description": "Based on or behaving according to what is morally right and fair."
+    },
+    {
+      "word": "know",
+      "description": "To be aware of through observation, inquiry, or information."
+    },
+    {
+      "word": "large",
+      "description": "Of considerable or relatively great size, extent, or capacity."
+    },
+    {
+      "word": "last",
+      "description": "Remaining after others are gone or dealt with."
+    },
+    {
+      "word": "learn",
+      "description": "To acquire knowledge of or skill in something through study or experience."
+    },
+    { "word": "leave", "description": "To go away from." },
+    {
+      "word": "life",
+      "description": "The existence of an individual human being or animal."
+    },
+    {
+      "word": "like",
+      "description": "Similar to or having the same characteristics as."
+    },
+    { "word": "little", "description": "Small in size, amount, or degree." },
+    { "word": "live", "description": "To remain alive or continue to exist." },
+    {
+      "word": "long",
+      "description": "Measuring a great distance from end to end."
+    },
+    { "word": "make", "description": "To create or form something." },
+    { "word": "man", "description": "An adult human male." },
+    { "word": "many", "description": "A large number of." },
+    {
+      "word": "more",
+      "description": "A greater or additional amount or degree."
+    },
+    {
+      "word": "most",
+      "description": "The greatest amount or degree of something."
+    },
+    {
+      "word": "move",
+      "description": "To change position or go from one place to another."
+    },
+    {
+      "word": "name",
+      "description": "A word by which a person or thing is known."
+    },
+    {
+      "word": "need",
+      "description": "Require something because it is essential or important."
+    },
+    {
+      "word": "new",
+      "description": "Not existing before; made, introduced, or discovered recently."
+    },
+    {
+      "word": "next",
+      "description": "Coming immediately after in time, order, or place."
+    },
+    {
+      "word": "night",
+      "description": "The period of darkness between sunset and sunrise."
+    },
+    { "word": "no", "description": "Used to give a negative response." },
+    { "word": "not", "description": "Used to make a verb or phrase negative." },
+    { "word": "now", "description": "At the present moment or time." },
+    { "word": "number", "description": "A numerical value." },
+    {
+      "word": "one",
+      "description": "The number following zero and preceding two."
+    },
+    { "word": "only", "description": "No more than; solely." },
+    { "word": "open", "description": "Allowing access or passage." },
+    { "word": "or", "description": "Used to link alternatives." },
+    {
+      "word": "other",
+      "description": "Used to refer to a person or thing that is different or distinct from one already mentioned."
+    },
+    {
+      "word": "our",
+      "description": "Belonging to or associated with the speaker and one or more other people."
+    },
+    {
+      "word": "out",
+      "description": "Moving or appearing to move away from a particular place, especially one that is enclosed."
+    },
+    { "word": "over", "description": "Extending directly upward from." },
+    {
+      "word": "place",
+      "description": "A particular position or point in space."
+    },
+    {
+      "word": "point",
+      "description": "A particular spot, place, or position."
+    },
+    { "word": "possible", "description": "Able to be done or achieved." },
+    { "word": "present", "description": "Existing or occurring now." },
+    {
+      "word": "put",
+      "description": "To move something into a particular position or place."
+    },
+    {
+      "word": "question",
+      "description": "A sentence or phrase used to find out information."
+    },
+    { "word": "raise", "description": "To lift or move to a higher position." },
+    { "word": "right", "description": "Correct or true; not wrong." },
+    { "word": "say", "description": "To utter words or sounds." },
+    { "word": "see", "description": "To perceive with the eyes." },
+    {
+      "word": "send",
+      "description": "To cause something to go or be taken to a particular destination."
+    },
+    { "word": "show", "description": "To make visible or display something." },
+    { "word": "side", "description": "A surface of something." },
+    { "word": "small", "description": "Of limited size or extent." },
+    { "word": "start", "description": "To begin or initiate." },
+    { "word": "state", "description": "A particular condition or situation." },
+    { "word": "stop", "description": "To cease moving or operating." },
+    {
+      "word": "study",
+      "description": "To learn about a subject through reading, research, or practice."
+    },
+    {
+      "word": "take",
+      "description": "To acquire possession or control of something."
+    },
+    {
+      "word": "talk",
+      "description": "To speak in order to give information or express ideas or feelings."
+    },
+    { "word": "tell", "description": "To communicate information to someone." },
+    {
+      "word": "than",
+      "description": "Used to introduce the second element in a comparison."
+    },
+    {
+      "word": "that",
+      "description": "Used to identify a specific person or thing observed or heard."
+    },
+    {
+      "word": "the",
+      "description": "Used to specify a particular person or thing."
+    },
+    {
+      "word": "their",
+      "description": "Belonging to or associated with the people or things previously mentioned."
+    },
+    {
+      "word": "them",
+      "description": "Used to refer to people or things previously mentioned."
+    },
+    {
+      "word": "then",
+      "description": "At that time; at the time under discussion."
+    },
+    { "word": "there", "description": "In, at, or to that place or position." },
+    {
+      "word": "these",
+      "description": "Used to refer to specific things or people that are near in place or time."
+    },
+    {
+      "word": "they",
+      "description": "Used to refer to two or more people or things previously mentioned."
+    },
+    {
+      "word": "this",
+      "description": "Used to refer to a specific thing or person near in place or time."
+    },
+    {
+      "word": "time",
+      "description": "The indefinite continued progress of existence and events."
+    },
+    {
+      "word": "to",
+      "description": "Used to indicate direction, place, or position."
+    },
+    {
+      "word": "today",
+      "description": "On or in the course of this present day."
+    },
+    {
+      "word": "too",
+      "description": "To a higher degree than is desirable or acceptable."
+    },
+    { "word": "under", "description": "In a position below something." },
+    { "word": "up", "description": "To a higher position." },
+    { "word": "use", "description": "To employ something for a purpose." },
+    {
+      "word": "very",
+      "description": "Used for emphasis or to mean 'extremely'."
+    },
+    { "word": "way", "description": "A method or manner of doing something." },
+    {
+      "word": "we",
+      "description": "Used by the speaker to refer to himself or herself and one or more other people."
+    },
+    { "word": "well", "description": "In a good or satisfactory way." },
+    { "word": "where", "description": "In or to what place or position." },
+    {
+      "word": "which",
+      "description": "Used to introduce a clause or to specify one or more items."
+    },
+    {
+      "word": "will",
+      "description": "Expressing the future tense or a strong intention."
+    },
+    { "word": "with", "description": "Accompanied by; having." },
+    {
+      "word": "work",
+      "description": "To engage in physical or mental effort to achieve a result."
+    },
+    {
+      "word": "would",
+      "description": "Used to indicate the consequence of an imagined situation."
+    },
+    { "word": "year", "description": "A period of 365 or 366 days." }
+  ]
+}
