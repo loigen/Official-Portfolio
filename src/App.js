@@ -14,14 +14,21 @@ import { CustomThemeProvider, useTheme } from "./contexts/ThemeContext";
 
 const AppContent = () => {
   const { theme } = useTheme();
-  const [isOnline, setIsOnline] = React.useState(navigator.onLine);
+  const [isOnline, setIsOnline] = React.useState(() => {
+    return localStorage.getItem("isOnline") === "true"
+      ? true
+      : navigator.onLine;
+  });
 
   React.useEffect(() => {
     const handleOnline = () => {
       setIsOnline(true);
-      window.location.reload();
+      localStorage.setItem("isOnline", "true");
     };
-    const handleOffline = () => setIsOnline(false);
+    const handleOffline = () => {
+      setIsOnline(false);
+      localStorage.setItem("isOnline", "false");
+    };
 
     window.addEventListener("online", handleOnline);
     window.addEventListener("offline", handleOffline);
