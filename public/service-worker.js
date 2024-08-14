@@ -17,7 +17,21 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Opened cache and caching:", URLS_TO_CACHE);
-      return cache.addAll(URLS_TO_CACHE);
+      // Handle each URL individually to avoid failure
+      return Promise.all(
+        URLS_TO_CACHE.map((url) => {
+          return fetch(url)
+            .then((response) => {
+              if (response.ok) {
+                return cache.put(url, response);
+              }
+              return Promise.reject("Failed to fetch");
+            })
+            .catch(() => {
+              console.warn(`Failed to cache ${url}`);
+            });
+        })
+      );
     })
   );
 });
@@ -41,7 +55,7 @@ self.addEventListener("activate", (event) => {
 
 // Fetch Event - Serve cached content if available, fall back to network otherwise
 self.addEventListener("fetch", (event) => {
-  // Ignore requests from chrome extensions or other non-supported schemes
+  // Ignore requests from unsupported schemes like chrome-extension
   if (event.request.url.startsWith("chrome-extension://")) {
     return;
   }
