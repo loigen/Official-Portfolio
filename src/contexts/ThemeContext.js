@@ -1,25 +1,21 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-// Define the context with default values
 const ThemeContext = createContext({
   toggleTheme: () => {},
   theme: "light",
 });
 
 export const CustomThemeProvider = ({ children }) => {
-  // Retrieve theme from local storage or default to "light"
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
     return savedTheme ? savedTheme : "light";
   });
 
-  // Effect to update local storage when the theme changes
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Determine MUI theme based on current theme state
   const themeMode = theme === "light" ? "light" : "dark";
 
   const muiTheme = createTheme({
@@ -39,7 +35,6 @@ export const CustomThemeProvider = ({ children }) => {
     },
   });
 
-  // Function to toggle theme between light and dark
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
@@ -51,5 +46,4 @@ export const CustomThemeProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use the theme context
 export const useTheme = () => useContext(ThemeContext);

@@ -6,26 +6,56 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 import ThemeToggleButton from "./components/ThemeToggleButton";
-import { CustomThemeProvider } from "./contexts/ThemeContext";
 import Footer from "./components/Footer";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import NoInternetConnection from "./pages/NoInternetConnection";
+import { CustomThemeProvider, useTheme } from "./contexts/ThemeContext";
 
-const App = () => (
-  <CustomThemeProvider>
-    <Router>
-      <CssBaseline />
-      <Navbar />
-      <div style={{ paddingTop: "64px" }}>
+const AppContent = () => {
+  const { theme } = useTheme();
+  const [isOnline, setIsOnline] = React.useState(navigator.onLine);
+
+  React.useEffect(() => {
+    const handleOnline = () => {
+      setIsOnline(true);
+      window.location.reload();
+    };
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
+  return (
+    <div style={{ paddingTop: "64px" }}>
+      {isOnline ? (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
+      ) : (
+        <NoInternetConnection />
+      )}
+    </div>
+  );
+};
+
+const App = () => (
+  <CustomThemeProvider>
+    <Router>
+      <CssBaseline />
+      <Navbar />
+      <AppContent />
       <ThemeToggleButton />
       <Footer />
     </Router>

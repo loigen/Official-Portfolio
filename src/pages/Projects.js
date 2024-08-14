@@ -9,6 +9,7 @@ import {
   CardMedia,
   Modal,
   useMediaQuery,
+  Chip,
 } from "@mui/material";
 import { Element } from "react-scroll";
 import { motion } from "framer-motion";
@@ -24,24 +25,28 @@ const projectData = [
     description:
       "Developed and maintained the ML Brokerage platform, focusing on real estate management with features for property listing, client management, and transaction processing.",
     image: Brokerage,
+    Tools: ["Docker", "ReactJS", "ExpressJS", "NodeJS", "SQL"],
   },
   {
     title: "ML Insurance",
     description:
       "Worked on the ML Insurance system, enhancing insurance services with features for policy management, claims processing, and customer support.",
     image: Insurance,
+    Tools: ["Docker", "ReactJS", "ExpressJS", "NodeJS", "SQL"],
   },
   {
     title: "ML Wallet Mobile App",
     description:
       "Designed and developed the ML Wallet mobile application, enabling users to manage their finances, track transactions, and handle payments efficiently.",
     image: MLWallet,
+    Tools: ["React Native", "Typescript", "NodeJS"],
   },
   {
     title: "Appointment Management System",
     description:
       "Created a comprehensive Appointment Management System for my capstone project, featuring scheduling, notifications, and a messaging system for efficient communication.",
     image: AMS,
+    Tools: ["ReactJS", "ExpressJS", "NodeJS", "MongoDB"],
   },
 ];
 
@@ -177,6 +182,22 @@ const Projects = () => {
                     >
                       {project.description}
                     </Typography>
+                    <div>
+                      {project.Tools.map((tool, idx) => (
+                        <Chip
+                          key={idx}
+                          label={tool}
+                          color="primary"
+                          variant="outlined"
+                          sx={{
+                            margin: "0.3rem",
+                            fontSize: { xs: "0.75rem", sm: "0.875rem" },
+                            fontWeight: 500,
+                            borderRadius: "8px",
+                          }}
+                        />
+                      ))}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -223,9 +244,6 @@ const Projects = () => {
                   image={selectedProject.image}
                   alt={selectedProject.title}
                   sx={{
-                    boxShadow: `0px 8px 24px ${
-                      isDarkMode ? "#00bfae" : "rgba(0,0,0,0.2)"
-                    }`,
                     borderRadius: "10px",
                     padding: "10px",
                     width: "100%",
