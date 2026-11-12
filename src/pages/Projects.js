@@ -19,19 +19,23 @@ import Brokerage from "../assets/Brokerage.png";
 import Insurance from "../assets/Insurance.png";
 import MLWallet from "../assets/MLwallet.png";
 import CloseIcon from "@mui/icons-material/Close";
+import cebpac from "../assets/cebpac.png";
+import cloudpos from "../assets/cloudpos.png";
+import ul from "../assets/UL.png";
+
 const projectData = [
   {
     title: "CloudPOS Ecosystem",
     description:
       "Co-developed an integrated multi-platform point-of-sale ecosystem supporting both web and desktop environments with seamless synchronization and enterprise-grade reliability.",
-    image: Brokerage,
+    image: cloudpos,
     Tools: ["Java Spring Boot", "React", "Electron", "MySQL"],
   },
   {
     title: "UNAHCO STK Mobile",
     description:
       "Co-developed an Android-exclusive enterprise mobile application integrated with legacy backend services, enabling field teams to manage logistics and operations.",
-    image: Insurance,
+    image: ul,
     Tools: ["Flutter", "Dart", "SOAP API", "Android"],
   },
   {
@@ -45,7 +49,7 @@ const projectData = [
     title: "Cebu Pacific Mobile App",
     description:
       "Contributed to native mobile application development and feature enhancements for a high-traffic commercial aviation platform serving thousands of daily users.",
-    image: AMS,
+    image: cebpac,
     Tools: ["Kotlin", "Android"],
   },
   {
