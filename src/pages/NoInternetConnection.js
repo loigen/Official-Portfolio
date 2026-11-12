@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography, Button, TextField } from "@mui/material";
 import { useTheme } from "../contexts/ThemeContext";
-import { motion, useAnimation } from "framer-motion";
+import { useAnimation } from "framer-motion";
 import Swal from "sweetalert2";
 import wordsData from "../data/words.json";
 

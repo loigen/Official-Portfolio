@@ -13,7 +13,6 @@ import NoInternetConnection from "./pages/NoInternetConnection";
 import { CustomThemeProvider, useTheme } from "./contexts/ThemeContext";
 
 const AppContent = () => {
-  const { theme } = useTheme();
   const [isOnline, setIsOnline] = React.useState(() => {
     return localStorage.getItem("isOnline") === "true"
       ? true

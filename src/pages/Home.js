@@ -90,7 +90,6 @@ const Home = () => {
   useEffect(() => {
     const typingSpeed = 100;
     const replaceDelay = 3000;
-    const replaceSpeed = 100;
 
     const typeText = (text) => {
       let index = 0;
@@ -117,7 +116,8 @@ const Home = () => {
     }, 4000);
 
     return () => clearInterval(flipInterval);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [avatarImages.length]);
 
   return (
     <Container
@@ -188,7 +188,6 @@ const Home = () => {
             style={{
               ...springProps,
               overflow: "hidden",
-              whiteSpace: "wrap",
               borderRight: `2px solid ${theme.palette.primary.main}`,
               fontSize: { xs: "5rem", sm: "6rem" },
               fontWeight: 700,

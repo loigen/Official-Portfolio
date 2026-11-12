@@ -24,7 +24,6 @@ const Navbar = () => {
   const theme = useTheme();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [isTyping, setIsTyping] = useState(true);
 
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
