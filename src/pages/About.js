@@ -21,22 +21,28 @@ const skills = {
     { name: "PHP", url: "https://www.php.net/" },
     { name: "TypeScript", url: "https://www.typescriptlang.org/" },
     { name: "Java", url: "https://www.oracle.com/java/" },
+    { name: "Kotlin", url: "https://kotlinlang.org/" },
+    { name: "Dart", url: "https://dart.dev/" },
     { name: "Python", url: "https://www.python.org/" },
     { name: "C#", url: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
+    { name: "SQL", url: "https://www.sql.org/" },
   ],
   frameworks: [
     { name: "React", url: "https://reactjs.org/" },
     { name: "Next.js", url: "https://nextjs.org/" },
     { name: "Express.js", url: "https://expressjs.com/" },
     { name: "React Native", url: "https://reactnative.dev/" },
+    { name: "Flutter", url: "https://flutter.dev/" },
+    { name: "Electron", url: "https://www.electronjs.org/" },
     { name: "ASP.NET", url: "https://dotnet.microsoft.com/apps/aspnet" },
   ],
   toolsAndTechnologies: [
     { name: "Node.js", url: "https://nodejs.org/" },
+    { name: "Spring Boot", url: "https://spring.io/projects/spring-boot" },
+    { name: "MySQL", url: "https://www.mysql.com/" },
     { name: "Tailwind CSS", url: "https://tailwindcss.com/" },
     { name: "Sass", url: "https://sass-lang.com/" },
     { name: "MongoDB", url: "https://www.mongodb.com/" },
-    { name: "SQL", url: "https://www.sql.org/" },
     { name: "Figma", url: "https://www.figma.com/" },
     {
       name: "AI Management",
@@ -100,8 +106,11 @@ const About = () => {
               component="p"
               sx={{ color: isDarkMode ? "#B0B0B0" : "#666" }}
             >
-              I'm a Full-Stack developer with a passion for creating innovative
-              solutions and engaging user experiences.
+              Software Developer with commercial experience building multi-platform
+              enterprise systems, cross-platform mobile applications, and full-stack
+              web and desktop solutions. Currently at Alliance Software Inc.,
+              specializing in backend databases, mobile ecosystems, and production
+              systems across multiple platforms.
             </Typography>
           </motion.div>
         </Box>
@@ -145,15 +154,24 @@ const About = () => {
                       fontWeight: 600,
                     }}
                   >
-                    Full Stack Developer
+                    Software Developer / Technical Specialist (TS 1)
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color={isDarkMode ? "#B0B0B0" : "#666"}
+                    sx={{ marginBottom: "0.5rem" }}
+                  >
+                    <strong>Alliance Software Inc.</strong> • Cebu City • Current
                   </Typography>
                   <Typography
                     variant="body2"
                     color={isDarkMode ? "#B0B0B0" : "#666"}
                   >
-                    Led the development of complex web applications, integrating
-                    frontend and backend technologies to deliver complete
-                    solutions.
+                    Collaborate within a shared-duty engineering team developing
+                    and maintaining a massive, multi-platform enterprise system.
+                    Architect and manage relational database operations using
+                    MySQL. Deliver end-to-end feature implementations and
+                    production support.
                   </Typography>
                 </CardContent>
               </Card>
@@ -184,14 +202,68 @@ const About = () => {
                       fontWeight: 600,
                     }}
                   >
-                    Mobile App Developer
+                    Full-Stack & Mobile Developer
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color={isDarkMode ? "#B0B0B0" : "#666"}
+                    sx={{ marginBottom: "0.5rem" }}
+                  >
+                    <strong>M Lhuillier Technology Group</strong> • OJT / Internship
                   </Typography>
                   <Typography
                     variant="body2"
                     color={isDarkMode ? "#B0B0B0" : "#666"}
                   >
-                    Designed and developed mobile applications with a focus on
-                    user experience and performance across multiple platforms.
+                    Frontend React Native development on MCash Revamp in
+                    collaboration with Symph. Integrated mobile payment solutions
+                    and transaction processing for enterprise financial system.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <Card
+                sx={{
+                  borderRadius: "12px",
+                  backgroundColor: isDarkMode ? "#1E1E1E" : "#FFFFFF",
+                  boxShadow: `0px 4px 15px ${
+                    isDarkMode ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.1)"
+                  }`,
+                }}
+              >
+                <CardContent>
+                  <Typography
+                    variant="h6"
+                    component="div"
+                    sx={{
+                      color: isDarkMode ? "#E0E0E0" : "#333",
+                      fontWeight: 600,
+                    }}
+                  >
+                    IT Support & Hardware Diagnostics Specialist
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color={isDarkMode ? "#B0B0B0" : "#666"}
+                    sx={{ marginBottom: "0.5rem" }}
+                  >
+                    <strong>Freelance</strong> • Cebu • Ongoing
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color={isDarkMode ? "#B0B0B0" : "#666"}
+                  >
+                    Provide independent hardware diagnostics, component-level
+                    testing, custom system rebuilds, and PC troubleshooting for
+                    local clients.
                   </Typography>
                 </CardContent>
               </Card>

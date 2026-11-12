@@ -21,6 +21,34 @@ import MLWallet from "../assets/MLwallet.png";
 import CloseIcon from "@mui/icons-material/Close";
 const projectData = [
   {
+    title: "CloudPOS Ecosystem",
+    description:
+      "Co-developed an integrated multi-platform point-of-sale ecosystem supporting both web and desktop environments with seamless synchronization and enterprise-grade reliability.",
+    image: Brokerage,
+    Tools: ["Java Spring Boot", "React", "Electron", "MySQL"],
+  },
+  {
+    title: "UNAHCO STK Mobile",
+    description:
+      "Co-developed an Android-exclusive enterprise mobile application integrated with legacy backend services, enabling field teams to manage logistics and operations.",
+    image: Insurance,
+    Tools: ["Flutter", "Dart", "SOAP API", "Android"],
+  },
+  {
+    title: "MCash Revamp",
+    description:
+      "Designed and developed the MCash Revamp mobile application, enabling users to manage their finances, track transactions, and handle payments efficiently. Collaborated with Symph on frontend React Native development.",
+    image: MLWallet,
+    Tools: ["React Native", "Typescript", "NodeJS"],
+  },
+  {
+    title: "Cebu Pacific Mobile App",
+    description:
+      "Contributed to native mobile application development and feature enhancements for a high-traffic commercial aviation platform serving thousands of daily users.",
+    image: AMS,
+    Tools: ["Kotlin", "Android"],
+  },
+  {
     title: "ML Brokerage",
     description:
       "Developed and maintained the ML Brokerage platform, focusing on real estate management with features for property listing, client management, and transaction processing.",
@@ -33,13 +61,6 @@ const projectData = [
       "Worked on the ML Insurance system, enhancing insurance services with features for policy management, claims processing, and customer support.",
     image: Insurance,
     Tools: ["Docker", "ReactJS", "ExpressJS", "NodeJS", "SQL"],
-  },
-  {
-    title: "ML Wallet Mobile App",
-    description:
-      "Designed and developed the ML Wallet mobile application, enabling users to manage their finances, track transactions, and handle payments efficiently.",
-    image: MLWallet,
-    Tools: ["React Native", "Typescript", "NodeJS"],
   },
   {
     title: "Appointment Management System",

@@ -26,6 +26,8 @@ const skills = {
     { name: "PHP", url: "https://www.php.net/" },
     { name: "TypeScript", url: "https://www.typescriptlang.org/" },
     { name: "Java", url: "https://www.oracle.com/java/" },
+    { name: "Kotlin", url: "https://kotlinlang.org/" },
+    { name: "Dart", url: "https://dart.dev/" },
     { name: "Python", url: "https://www.python.org/" },
     { name: "C#", url: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
   ],
@@ -34,10 +36,14 @@ const skills = {
     { name: "Next.js", url: "https://nextjs.org/" },
     { name: "Express.js", url: "https://expressjs.com/" },
     { name: "React Native", url: "https://reactnative.dev/" },
+    { name: "Flutter", url: "https://flutter.dev/" },
+    { name: "Electron", url: "https://www.electronjs.org/" },
     { name: "ASP.NET", url: "https://dotnet.microsoft.com/apps/aspnet" },
   ],
   toolsAndTechnologies: [
     { name: "Node.js", url: "https://nodejs.org/" },
+    { name: "Spring Boot", url: "https://spring.io/projects/spring-boot" },
+    { name: "MySQL", url: "https://www.mysql.com/" },
     { name: "Tailwind CSS", url: "https://tailwindcss.com/" },
     { name: "Sass", url: "https://sass-lang.com/" },
     { name: "MongoDB", url: "https://www.mongodb.com/" },
@@ -210,12 +216,13 @@ const Home = () => {
               fontSize: { xs: "1rem", sm: "1.25rem" },
             }}
           >
-            I'm a Software Developer focused on creating modern, visually
-            engaging applications using cutting-edge technologies. Skilled in
-            JavaScript, TypeScript, Java, Python, and C#, I work with frameworks
-            like React, Next.js, and ASP.NET. My experience spans web and mobile
-            development, with a strong command of tools like Node.js, Tailwind
-            CSS, and MongoDB to deliver innovative, high-quality solutions.
+            I'm a Software Developer & Technical Specialist with commercial
+            experience building multi-platform enterprise systems, cross-platform
+            mobile applications, and full-stack web and desktop solutions. I work
+            with Java, Kotlin, Dart, JavaScript, TypeScript, and SQL across
+            frameworks like React, React Native, Flutter, and Spring Boot. Based
+            in Cebu City, I deliver end-to-end feature implementations and
+            production support across multiple platforms.
           </Typography>
           <Link to="/projects" style={{ textDecoration: "none" }}>
             <Button
