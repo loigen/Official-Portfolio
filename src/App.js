@@ -10,7 +10,7 @@ import NotFound from "./pages/NotFound";
 import ThemeToggleButton from "./components/ThemeToggleButton";
 import Footer from "./components/Footer";
 import NoInternetConnection from "./pages/NoInternetConnection";
-import { CustomThemeProvider, useTheme } from "./contexts/ThemeContext";
+import { CustomThemeProvider } from "./contexts/ThemeContext";
 
 const AppContent = () => {
   const [isOnline, setIsOnline] = React.useState(() => {
